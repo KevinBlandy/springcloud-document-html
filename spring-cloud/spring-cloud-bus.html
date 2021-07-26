@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Spring Cloud Bus</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Spring,SpringBoot,SpringCloud最新中文文档">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../index.html">Spring中文文档</a></li><li class="chapter-item "><a href="../spring-boot/index.html">Spring Boot</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-boot/getting-started.html">开始使用</a></li><li class="chapter-item "><a href="../spring-boot/upgrading.html">升级spring-boot应用</a></li><li class="chapter-item "><a href="../spring-boot/using.html">使用spring-boot</a></li><li class="chapter-item "><a href="../spring-boot/features.html">SringBoot特性</a></li><li class="chapter-item "><a href="../spring-boot/actuator.html">Spring Boot Actuator</a></li><li class="chapter-item "><a href="../spring-boot/cli.html">Spring Boot CLI</a></li><li class="chapter-item "><a href="../spring-boot/deployment.html">部署spring-boot应用</a></li><li class="chapter-item "><a href="../spring-boot/build-tool-plugins.html">构建工具插件</a></li><li class="chapter-item "><a href="../spring-boot/howto.html">“How-to”指南</a></li><li class="chapter-item "><a href="../spring-boot/application-properties.html">Application Properties</a></li><li class="chapter-item "><a href="../spring-boot/configuration-metadata.html">Configuration Metadata</a></li><li class="chapter-item "><a href="../spring-boot/auto-configuration-classes.html">Auto-configuration classes</a></li><li class="chapter-item "><a href="../spring-boot/test-auto-configuration.html">Test auto-configuration annotations</a></li><li class="chapter-item "><a href="../spring-boot/executable-jar.html">可执行Jar</a></li><li class="chapter-item "><a href="../spring-boot/dependency-versions.html">依赖版本号</a></li></ol></li><li class="chapter-item expanded "><a href="../spring-cloud/index.html">Spring Cloud</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-azure.html">Spring Cloud Azure</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-alibaba.html">Spring Cloud Alibaba</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-for-amazon-web-services.html">Spring Cloud for Amazon Web Services</a></li><li class="chapter-item expanded "><a href="../spring-cloud/spring-cloud-bus.html" class="active">Spring Cloud Bus</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-circuit-breaker.html">Spring Cloud Circuit Breaker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cli.html">Spring Cloud CLI</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-for-cloud-foundry.html">Spring Cloud for Cloud Foundry</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cloud-foundry-service-nroker.html">Spring Cloud - Cloud Foundry Service Broker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cluster.html">Spring Cloud Cluster</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-commons.html">Spring Cloud Commons</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-config.html">Spring Cloud Config</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cconnectors.html">Spring Cloud Connectors</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-consul.html">Spring Cloud Consul</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-contract.html">Spring Cloud Contract</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-function.html">Spring Cloud Function</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-gateway.html">Spring Cloud Gateway</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-gcp.html">Spring Cloud GCP</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-kubernetes.html">Spring Cloud Kubernetes</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-netflix].html">Spring Cloud Netflix</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-open-service-broker.html">Spring Cloud Open Service Broker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-openfeign.html">Spring Cloud OpenFeign</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-pipelines.html">Spring Cloud Pipelines</a></li><li class="chapter-item "><a href="../spring-cloud-schema-registry.html">Spring Cloud Schema Registry</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-security.html">Spring Cloud Security</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-skipper.html">Spring Cloud Skipper</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth.html">Spring Cloud Sleuth</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/getting-started.html">入门使用</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/using.html">使用 Spring Cloud Sleuth</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/features.html">Spring Cloud Sleuth 特性</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/howto.html">“How-to” 指南</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/sleuth-integration.html">Spring Cloud Sleuth 整合</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/appendix.html">附录</a></li></ol></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream.html">Spring Cloud Stream</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-reference.html">Overview</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-rabbit.html">Rabbit MQ Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-kafka.html">Apache Kafka Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-kafka.html">Apache Kafka Streams Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-samples.html">Spring Cloud Stream Samples</a></li></ol></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream-app-starters.html">Spring Cloud Stream App Starters</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream-applications.html">Spring Cloud Stream Applications</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-task.html">Spring Cloud Task</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-task-app-starters.html">Spring Cloud Task App Starters</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-vault.html">Spring Cloud Vault</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-zookeeper.html">Spring Cloud Zookeeper</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-app-broker.html">Spring Cloud App Broker</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="spring-cloud-bus"><a class="header" href="#spring-cloud-bus">Spring Cloud Bus</a></h1>
+<ul>
+<li>当前版本：3.0.2</li>
+<li>修改时间：2021年7月22日</li>
+<li>官方文档：<a href="https://docs.spring.io/spring-cloud-bus/docs/current/reference/html/">https://docs.spring.io/spring-cloud-bus/docs/current/reference/html/</a></li>
+<li>源码仓库：<a href="https://github.com/spring-cloud/spring-cloud-bus">https://github.com/spring-cloud/spring-cloud-bus</a></li>
+</ul>
+<p>Spring Cloud Bus将分布式系统的节点与一个轻量级的消息代理联系起来。然后，这可以用来广播状态变化（如配置变化）或其他管理指令。该项目包括AMQP和Kafka代理的实现。另外，在classpath上找到的任何Spring Cloud Stream绑定器都可以作为传输工具开箱即用。</p>
+<h2 id="1-快速开始"><a class="header" href="#1-快速开始">1. 快速开始</a></h2>
+<p>如果Spring Cloud Bus在classpath上检测到自己，它就会通过添加Spring Boot自动配置来工作。要启用总线，请将<code>spring-cloud-starter-bus-amqp</code>或<code>spring-cloud-starter-bus-kafka</code>添加到您的依赖性管理中。Spring Cloud会处理剩下的事情。确保代理（RabbitMQ或Kafka）是可用的并已配置。当在本地主机上运行时，你不需要做任何事情。如果你远程运行，请使用Spring Cloud Connectors或Spring Boot约定来定义代理凭证，如下面Rabbit的例子所示。</p>
+<p>application.yml</p>
+<pre><code class="language-yaml">spring:
+  rabbitmq:
+    host: mybroker.com
+    port: 5672
+    username: user
+    password: secret
+</code></pre>
+<p>总线目前支持向所有监听的节点或某一特定服务的所有节点发送消息（由Eureka定义）。<code>/bus/*</code>执行器命名空间有一些HTTP端点。目前，有两个已经实现。第一个，<code>/bus/env</code>，发送键/值对以更新每个节点的Spring环境。第二个，<code>/bus/refresh</code>，重新加载每个应用程序的配置，就像它们都被ping到了<code>/refresh</code>端点一样。</p>
+<blockquote>
+<p>Spring Cloud Bus的启动程序涵盖了Rabbit和Kafka，因为这是最常见的两种实现方式。然而，Spring Cloud Stream是相当灵活的，而且该绑定器与<code>spring-cloud-bus</code>一起使用。</p>
+</blockquote>
+<h2 id="2-actuator-端点"><a class="header" href="#2-actuator-端点">2. Actuator 端点</a></h2>
+<p>Spring Cloud Bus提供了两个端点，<code>/actuator/busrefresh</code>和<code>/actuator/busenv</code>，分别对应于Spring Cloud Commons中的单个执行器端点<code>/actuator/refresh</code>和<code>/actuator/env</code>。</p>
+<h3 id="21-refresh-endpoint"><a class="header" href="#21-refresh-endpoint">2.1. Refresh Endpoint</a></h3>
+<p><code>/actuator/busrefresh</code>端点清除<code>RefreshScope</code>缓存并重新绑定<code>@ConfigurationProperties</code>。更多信息请参见 <a href="https://docs.spring.io/spring-cloud-bus/docs/current/reference/html/#refresh-scope">Refresh Scope</a> 文档。</p>
+<p>为了暴露<code>/actuator/busrefresh</code>端点，你需要向你的应用程序添加以下配置。</p>
+<pre><code class="language-properties">management.endpoints.web.exposure.include=busrefresh
+</code></pre>
+<h3 id="22--env-endpoint"><a class="header" href="#22--env-endpoint">2.2.  Env Endpoint</a></h3>
+<p><code>/actuator/busenv</code>端点用指定的键/值对在多个实例中更新每个实例环境。</p>
+<p>为了暴露<code>/actuator/busenv</code>端点，你需要在你的应用程序中添加以下配置。</p>
+<pre><code class="language-properties">management.endpoints.web.exposure.include=busenv
+</code></pre>
+<p><code>/actuator/busenv</code>端点接受<code>POST</code>请求，请求体格式如下。</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;key1&quot;,
+    &quot;value&quot;: &quot;value1&quot;
+}
+</code></pre>
+<h2 id="3-对一个实例进行寻址"><a class="header" href="#3-对一个实例进行寻址">3. 对一个实例进行寻址</a></h2>
+<p>应用程序的每个实例都有一个服务ID，其值可以用<code>spring.cloud.bus.id</code>来设置，其值预计是一个用冒号分隔的标识符列表，从最不具体到最具体的顺序。默认值从环境中构建，作为<code>spring.application.name</code>和<code>server.port</code>的组合（或<code>spring.application.index</code>，如果设置）。ID的默认值是以<code>app:index:id</code>的形式构建的，其中。</p>
+<ul>
+<li><code>app</code>是<code>vcap.application.name</code>，如果它存在的话，或者是<code>spring.application.name</code>。</li>
+<li><code>index</code>是<code>vcap.application.instance_index</code>，如果它存在的话，<code>spring.application.index</code>，<code>local.server.port</code>，<code>server.port</code>或<code>0</code>（按顺序排列）。</li>
+<li><code>id</code>是<code>vcap.application.instance_id</code>，如果它存在，或者是一个随机值。</li>
+</ul>
+<p>HTTP 端点接受一个 &quot;destination&quot; 路径参数，如<code>/busrefresh/customers:9000</code>，其中<code>目的地</code>是一个服务 ID。如果该ID为总线上的一个实例所拥有，它就会处理该消息，而所有其他实例都会忽略它。</p>
+<h2 id="4-对一个服务的所有实例进行寻址"><a class="header" href="#4-对一个服务的所有实例进行寻址">4. 对一个服务的所有实例进行寻址</a></h2>
+<p>&quot;destination&quot;参数在Spring的<code>PathMatcher</code>中使用（路径分隔符为冒号 - <code>:</code> ），以确定一个实例是否处理该消息。使用前面的例子，<code>/busenv/customers:**</code>针对 &quot;customers &quot;服务的所有实例，而不管服务ID的其他部分。</p>
+<h2 id="5-service-id-必须唯一"><a class="header" href="#5-service-id-必须唯一">5. Service ID 必须唯一</a></h2>
+<p>总线尝试两次来消除对一个事件的处理--一次来自原始的<code>ApplicationEvent</code>，一次来自队列。为此，它检查发送的服务ID和当前的服务ID。如果一个服务的多个实例有相同的ID，事件就不会被处理。在本地机器上运行时，每个服务都在一个不同的端口上，该端口是 ID 的一部分。Cloud Foundry 提供了一个索引来进行区分。为确保 ID 在 Cloud Foundry 之外是唯一的，请将 <code>spring.application.index</code> 设置为服务的每个实例的唯一内容。</p>
+<h2 id="6-定制消息代理"><a class="header" href="#6-定制消息代理">6. 定制消息代理</a></h2>
+<p>Spring Cloud Bus使用<a href="https://cloud.spring.io/spring-cloud-stream">Spring Cloud Stream</a>来广播消息。因此，为了让消息流动起来，你只需要在classpath中包含你选择的绑定器实现。对于使用AMQP（RabbitMQ）和Kafka（<code>spring-cloud-starter-bus-[amqp|kafka]</code>）的总线，有一些方便的启动器。一般来说，Spring Cloud Stream依靠Spring Boot的自动配置约定来配置中间件。例如，AMQP代理地址可以通过<code>spring.rabbitmq.*</code>配置属性来改变。Spring Cloud Bus在<code>spring.cloud.bus.*</code>中拥有少量的本地配置属性（例如，<code>spring.cloud.bus.destination</code>是用作外部中间件的主题名称）。通常情况下，默认值就足够了。</p>
+<p>要了解更多关于如何定制消息代理的设置，请查阅Spring Cloud Stream文档。</p>
+<h2 id="7-追踪总线事件"><a class="header" href="#7-追踪总线事件">7. 追踪总线事件</a></h2>
+<p>总线事件（<code>RemoteApplicationEvent</code>的子类）可以通过设置<code>spring.cloud.bus.trace.enabled=true</code>来追踪。如果你这样做，Spring Boot <code>TraceRepository</code>（如果它存在的话）会显示每个事件的发送情况和每个服务实例的所有acks。下面的例子来自<code>/trace</code>端点。</p>
+<pre><code class="language-json">{
+  &quot;timestamp&quot;: &quot;2015-11-26T10:24:44.411+0000&quot;,
+  &quot;info&quot;: {
+    &quot;signal&quot;: &quot;spring.cloud.bus.ack&quot;,
+    &quot;type&quot;: &quot;RefreshRemoteApplicationEvent&quot;,
+    &quot;id&quot;: &quot;c4d374b7-58ea-4928-a312-31984def293b&quot;,
+    &quot;origin&quot;: &quot;stores:8081&quot;,
+    &quot;destination&quot;: &quot;*:**&quot;
+  }
+  },
+  {
+  &quot;timestamp&quot;: &quot;2015-11-26T10:24:41.864+0000&quot;,
+  &quot;info&quot;: {
+    &quot;signal&quot;: &quot;spring.cloud.bus.sent&quot;,
+    &quot;type&quot;: &quot;RefreshRemoteApplicationEvent&quot;,
+    &quot;id&quot;: &quot;c4d374b7-58ea-4928-a312-31984def293b&quot;,
+    &quot;origin&quot;: &quot;customers:9000&quot;,
+    &quot;destination&quot;: &quot;*:**&quot;
+  }
+  },
+  {
+  &quot;timestamp&quot;: &quot;2015-11-26T10:24:41.862+0000&quot;,
+  &quot;info&quot;: {
+    &quot;signal&quot;: &quot;spring.cloud.bus.ack&quot;,
+    &quot;type&quot;: &quot;RefreshRemoteApplicationEvent&quot;,
+    &quot;id&quot;: &quot;c4d374b7-58ea-4928-a312-31984def293b&quot;,
+    &quot;origin&quot;: &quot;customers:9000&quot;,
+    &quot;destination&quot;: &quot;*:**&quot;
+  }
+}
+</code></pre>
+<p>前面的跟踪显示，一个 &quot;RefreshRemoteApplicationEvent&quot;从<code>customers:9000</code>发出，广播到所有服务，并由<code>customers:9000</code>和<code>stores:8081</code>接收（acked）。</p>
+<p>要自己处理ack信号，你可以为<code>AckRemoteApplicationEvent</code>和<code>SentApplicationEvent</code>类型添加一个<code>@EventListener</code>到你的应用程序（并启用跟踪）。另外，你也可以进入<code>TraceRepository</code>，从那里挖掘数据。</p>
+<blockquote>
+<p>任何总线应用都可以跟踪acks。然而，有时候，在一个中央服务中进行这项工作是很有用的，它可以对数据进行更复杂的查询，或者将其转发给专门的追踪服务。</p>
+</blockquote>
+<h2 id="8-广播自定义事件"><a class="header" href="#8-广播自定义事件">8. 广播自定义事件</a></h2>
+<p>总线可以携带任何类型的<code>RemoteApplicationEvent</code>的事件。默认的传输方式是JSON，反序列化器需要提前知道哪些类型将被使用。要注册一个新的类型，你必须把它放在<code>org.springframework.cloud.bus.event</code>的一个子包中。</p>
+<p>要自定义事件名称，你可以在你的自定义类上使用<code>@JsonTypeName</code>，或者依靠默认策略，即使用类的简单名称。</p>
+<blockquote>
+<p>生产者和消费者都需要访问该类的定义。</p>
+</blockquote>
+<h3 id="81-在自定义包中注册事件"><a class="header" href="#81-在自定义包中注册事件">8.1. 在自定义包中注册事件</a></h3>
+<p>如果你不能或不想为你的自定义事件使用<code>org.springframework.cloud.bus.event</code>的子包，你必须通过使用<code>@RemoteApplicationEventScan</code>注解指定哪些包来扫描<code>RemoteApplicationEvent</code>类型的事件。用<code>@RemoteApplicationEventScan</code>指定的包包括子包。</p>
+<p>例如，考虑下面的自定义事件，称为<code>MyEvent</code>:</p>
+<pre><code class="language-java">package com.acme;
+
+public class MyEvent extends RemoteApplicationEvent {
+    ...
+}
+</code></pre>
+<p>你可以通过以下方式向deserializer注册该事件:</p>
+<pre><code class="language-java">package com.acme;
+
+@Configuration
+@RemoteApplicationEventScan
+public class BusConfiguration {
+    ...
+}
+</code></pre>
+<p>如果没有指定值，则使用<code>@RemoteApplicationEventScan</code>的类的包被注册。在这个例子中，<code>com.acme</code>是通过使用<code>BusConfiguration</code>的包注册的。</p>
+<p>你也可以通过使用<code>@RemoteApplicationEventScan</code>上的<code>value</code>、<code>basePackages</code>或<code>basePackageClasses</code>属性明确指定要扫描的包，如下例所示。</p>
+<pre><code class="language-java">package com.acme;
+
+@Configuration
+//@RemoteApplicationEventScan({&quot;com.acme&quot;, &quot;foo.bar&quot;})
+//@RemoteApplicationEventScan(basePackages = {&quot;com.acme&quot;, &quot;foo.bar&quot;, &quot;fizz.buzz&quot;})
+@RemoteApplicationEventScan(basePackageClasses = BusConfiguration.class)
+public class BusConfiguration {
+    ...
+}
+</code></pre>
+<p>所有前面的<code>@RemoteApplicationEventScan</code>的例子都是等同的，即通过明确指定<code>@RemoteApplicationEventScan</code>上的包来注册<code>com.acme</code>包。</p>
+<blockquote>
+<p>你可以指定多个base packages进行扫描</p>
+</blockquote>
+<h2 id="9-配置属性"><a class="header" href="#9-配置属性">9. 配置属性</a></h2>
+<p>要查看所有与总线相关的配置属性列表，请查看<a href="https://docs.spring.io/spring-cloud-bus/docs/current/reference/html/appendix.html">附录页面</a>。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../spring-cloud/spring-cloud-for-amazon-web-services.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../spring-cloud/spring-cloud-circuit-breaker.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../spring-cloud/spring-cloud-for-amazon-web-services.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../spring-cloud/spring-cloud-circuit-breaker.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+                <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

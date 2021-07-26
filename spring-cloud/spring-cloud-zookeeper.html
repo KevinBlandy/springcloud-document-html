@@ -1,0 +1,707 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Spring Cloud Zookeeper</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Spring,SpringBoot,SpringCloud最新中文文档">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../index.html">Spring中文文档</a></li><li class="chapter-item "><a href="../spring-boot/index.html">Spring Boot</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-boot/getting-started.html">开始使用</a></li><li class="chapter-item "><a href="../spring-boot/upgrading.html">升级spring-boot应用</a></li><li class="chapter-item "><a href="../spring-boot/using.html">使用spring-boot</a></li><li class="chapter-item "><a href="../spring-boot/features.html">SringBoot特性</a></li><li class="chapter-item "><a href="../spring-boot/actuator.html">Spring Boot Actuator</a></li><li class="chapter-item "><a href="../spring-boot/cli.html">Spring Boot CLI</a></li><li class="chapter-item "><a href="../spring-boot/deployment.html">部署spring-boot应用</a></li><li class="chapter-item "><a href="../spring-boot/build-tool-plugins.html">构建工具插件</a></li><li class="chapter-item "><a href="../spring-boot/howto.html">“How-to”指南</a></li><li class="chapter-item "><a href="../spring-boot/application-properties.html">Application Properties</a></li><li class="chapter-item "><a href="../spring-boot/configuration-metadata.html">Configuration Metadata</a></li><li class="chapter-item "><a href="../spring-boot/auto-configuration-classes.html">Auto-configuration classes</a></li><li class="chapter-item "><a href="../spring-boot/test-auto-configuration.html">Test auto-configuration annotations</a></li><li class="chapter-item "><a href="../spring-boot/executable-jar.html">可执行Jar</a></li><li class="chapter-item "><a href="../spring-boot/dependency-versions.html">依赖版本号</a></li></ol></li><li class="chapter-item expanded "><a href="../spring-cloud/index.html">Spring Cloud</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-azure.html">Spring Cloud Azure</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-alibaba.html">Spring Cloud Alibaba</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-for-amazon-web-services.html">Spring Cloud for Amazon Web Services</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-bus.html">Spring Cloud Bus</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-circuit-breaker.html">Spring Cloud Circuit Breaker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cli.html">Spring Cloud CLI</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-for-cloud-foundry.html">Spring Cloud for Cloud Foundry</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cloud-foundry-service-nroker.html">Spring Cloud - Cloud Foundry Service Broker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cluster.html">Spring Cloud Cluster</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-commons.html">Spring Cloud Commons</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-config.html">Spring Cloud Config</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cconnectors.html">Spring Cloud Connectors</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-consul.html">Spring Cloud Consul</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-contract.html">Spring Cloud Contract</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-function.html">Spring Cloud Function</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-gateway.html">Spring Cloud Gateway</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-gcp.html">Spring Cloud GCP</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-kubernetes.html">Spring Cloud Kubernetes</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-netflix].html">Spring Cloud Netflix</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-open-service-broker.html">Spring Cloud Open Service Broker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-openfeign.html">Spring Cloud OpenFeign</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-pipelines.html">Spring Cloud Pipelines</a></li><li class="chapter-item "><a href="../spring-cloud-schema-registry.html">Spring Cloud Schema Registry</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-security.html">Spring Cloud Security</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-skipper.html">Spring Cloud Skipper</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth.html">Spring Cloud Sleuth</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/getting-started.html">入门使用</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/using.html">使用 Spring Cloud Sleuth</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/features.html">Spring Cloud Sleuth 特性</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/howto.html">“How-to” 指南</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/sleuth-integration.html">Spring Cloud Sleuth 整合</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/appendix.html">附录</a></li></ol></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream.html">Spring Cloud Stream</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-reference.html">Overview</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-rabbit.html">Rabbit MQ Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-kafka.html">Apache Kafka Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-kafka.html">Apache Kafka Streams Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-samples.html">Spring Cloud Stream Samples</a></li></ol></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream-app-starters.html">Spring Cloud Stream App Starters</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream-applications.html">Spring Cloud Stream Applications</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-task.html">Spring Cloud Task</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-task-app-starters.html">Spring Cloud Task App Starters</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-vault.html">Spring Cloud Vault</a></li><li class="chapter-item expanded "><a href="../spring-cloud/spring-cloud-zookeeper.html" class="active">Spring Cloud Zookeeper</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-app-broker.html">Spring Cloud App Broker</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="spring-cloud-zookeeper"><a class="header" href="#spring-cloud-zookeeper">Spring Cloud Zookeeper</a></h1>
+<ul>
+<li>当前版本：3.0.3</li>
+<li>修改时间：2021年7月26日</li>
+<li>官方文档：<a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/">https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/</a></li>
+<li>源码仓库：<a href="https://github.com/spring-cloud/spring-cloud-zookeeper">https://github.com/spring-cloud/spring-cloud-zookeeper</a></li>
+</ul>
+<p>该项目通过自动配置与Spring环境和其他Spring应用程序的绑定，为SpringBoot应用程序提供Zookeeper的集成。通过一些注解，你可以在你的应用程序中快速启用和配置常见的模式，并使用基于Zookeeper的组件构建大型分布式系统。所提供的模式包括服务发现和配置。该项目还通过与Spring Cloud LoadBalancer的集成提供了客户端的负载平衡。</p>
+<h2 id="1-快速开始"><a class="header" href="#1-快速开始">1. 快速开始</a></h2>
+<p>这篇快速入门文章介绍了使用Spring Cloud Zookeeper进行服务发现和分布式配置。</p>
+<h3 id="11-discovery-client-用法"><a class="header" href="#11-discovery-client-用法">1.1. Discovery Client 用法</a></h3>
+<p>要在应用程序中使用这些功能，你需要将<code>spring-cloud-zookeeper-core</code> 和 <code>spring-cloud-zookeeper-discovery</code>引入你的Spring Boot 应用程序依赖中。添加依赖关系的最方便方式是使用<code>Spring Boot starter</code>：<code>org.springframework.cloud:spring-cloud-starter-zookeeper-discovery</code>。我们推荐使用建议管理和<code>spring-boot-starter-parent</code>。下面的例子展示了一个典型的Maven配置：</p>
+<p><strong>pom.xml</strong></p>
+<pre><code class="language-xml">&lt;project&gt;
+&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;{spring-boot-version}&lt;/version&gt;
+    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+  &lt;/parent&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-zookeeper-discovery&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  &lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+        &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+        &lt;type&gt;pom&lt;/type&gt;
+        &lt;scope&gt;import&lt;/scope&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+  &lt;/dependencyManagement&gt;
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<p>下面的例子展示了一个典型的Gradle设置：</p>
+<p><strong>build.gradle</strong></p>
+<pre><code class="language-groovy">plugins {
+  id 'org.springframework.boot' version ${spring-boot-version}
+  id 'io.spring.dependency-management' version ${spring-dependency-management-version}
+  id 'java'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.springframework.cloud:spring-cloud-starter-zookeeper-discovery'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+dependencyManagement {
+  imports {
+    mavenBom &quot;org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}&quot;
+  }
+}
+</code></pre>
+<blockquote>
+<p>根据你使用的版本，你可能需要调整项目中使用费的Apache Zookeeper版本，你可以在安装Zookeeper(之后的章节)部分时查看更多信息。</p>
+</blockquote>
+<p>现在，你可以创建标准的Spring Boot应用程序了，例如以下的HTTP Server：</p>
+<pre><code class="language-java">@SpringBootApplication
+@RestController
+public class Application {
+
+    @GetMapping(&quot;/&quot;)
+    public String home() {
+        return &quot;Hello World!&quot;;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+
+}
+</code></pre>
+<p>此HTTP服务器运行时,它连接到Zookeeper，运行在默认的本地端口2181。要调整启动方式，你可以使用<code>appcalication.propertis</code>更改Zookeeper设置，如下面的示例：</p>
+<pre><code class="language-yml">spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+</code></pre>
+<p>现在你可以使用 <code>DiscoveryClient</code>, <code>@LoadBalanced RestTemplate</code>, 或者 <code>@LoadBalanced WebClient.Builder</code> 从zookeeper检索服务和实例数据，如以下示例所示：</p>
+<pre><code class="language-java">@Autowired
+private DiscoveryClient discoveryClient;
+
+public String serviceUrl() {
+    List&lt;ServiceInstance&gt; list = discoveryClient.getInstances(&quot;STORES&quot;);
+    if (list != null &amp;&amp; list.size() &gt; 0 ) {
+        return list.get(0).getUri().toString();
+    }
+    return null;
+}
+</code></pre>
+<h3 id="12-分布式配置用法"><a class="header" href="#12-分布式配置用法">1.2. 分布式配置用法</a></h3>
+<p>要在应用程序中使用这些功能，你需要构建依赖于<code>spring-cloud-zookeeper-core</code> 和<code>spring-cloud-zookeeper-config</code>的Spring Boot 应用程序 。添加依赖最方便的方式是使用<code>Spring boot Starter</code>：<code>org.springframework.cloud:spring-cloud-starter-zookeeper-config</code>。我们推荐使用依赖管理和：<code>spring-boot-starter-parent</code>。以下示例显示了典型的Maven配置：</p>
+<p><strong>pom.xml</strong></p>
+<pre><code class="language-xml">&lt;project&gt;
+&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;{spring-boot-version}&lt;/version&gt;
+    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+  &lt;/parent&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-starter-zookeeper-config&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  &lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+        &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+        &lt;type&gt;pom&lt;/type&gt;
+        &lt;scope&gt;import&lt;/scope&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+  &lt;/dependencyManagement&gt;
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<p>以下示例显示了典型的Gradle Setup：</p>
+<p><strong>build.gradle</strong></p>
+<pre><code class="language-groovy">plugins {
+  id 'org.springframework.boot' version ${spring-boot-version}
+  id 'io.spring.dependency-management' version ${spring-dependency-management-version}
+  id 'java'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.springframework.cloud:spring-cloud-starter-zookeeper-config'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+dependencyManagement {
+  imports {
+    mavenBom &quot;org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}&quot;
+  }
+}
+</code></pre>
+<blockquote>
+<p>根据您使用的版本，您可能需要调整项目中使用的apache zookeeper版本。 您可以在安装zookeeper部分中了解更多信息。</p>
+</blockquote>
+<h2 id="2-安装zookeeper"><a class="header" href="#2-安装zookeeper">2. 安装Zookeeper</a></h2>
+<p>有关如何安装<a href="https://zookeeper.apache.org/doc/current/zookeeperStarted.html">zookeeper</a>的说明，请参阅安装文档。</p>
+<p>Spring Cloud Zookeeper在幕后使用Apache Curator。虽然Zookeeper 3.5.x仍被Zookeeper开发团队认为是“beta”版，但现实是它被许多用户使用到生产环境。然而，Zookeeper 3.4.x也在生产中使用。在Apache Curater 4.0之前，通过两个版本的Apache Cureator支持两个版本的ZooKeeper。从Curator 4.0开始，Zookeeper的两个版本都通过相同的Curator库来支持。</p>
+<p>如果你集成的是3.4版本，你需要改变Zookeeper的依赖关系，这个依赖关系是与curator一起提供的，也就是<code>spring-cloud-zookeeper</code>。要做到这一点，只需排除该依赖关系，并添加3.4.x版本，如下所示:</p>
+<p><strong>maven</strong></p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-zookeeper-all&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;
+            &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;
+    &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;
+    &lt;version&gt;3.4.12&lt;/version&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><strong>gradle</strong></p>
+<pre><code class="language-groovy">compile('org.springframework.cloud:spring-cloud-starter-zookeeper-all') {
+  exclude group: 'org.apache.zookeeper', module: 'zookeeper'
+}
+compile('org.apache.zookeeper:zookeeper:3.4.12') {
+  exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+</code></pre>
+<h2 id="3-zookeeper的服务发现"><a class="header" href="#3-zookeeper的服务发现">3. Zookeeper的服务发现</a></h2>
+<p>服务发现是基于微服务的架构的关键原则之一。试图手工配置每个客户端或某种形式的约定是很难做到的，而且可能出问题。<a href="https://curator.apache.org/">Curator</a>（Zookeeper的一个Java库）通过服务发现扩展提供了服务发现。Spring Cloud Zookeeper使用这个扩展进行服务注册和发现。</p>
+<h3 id="31-激活"><a class="header" href="#31-激活">3.1. 激活</a></h3>
+<p>包含<code>org.springframework.cloud:spring-cloud-starter-zookeeper-discovery</code>的依赖，可以实现自动配置，设置<code>Spring Cloud Zookeeper Discovery</code>。</p>
+<blockquote>
+<p>对于Web功能，你仍然需要包括<code>org.springframework.boot:spring-boot-starter-web</code>。</p>
+</blockquote>
+<blockquote>
+<p>当使用3.4版本的Zookeeper时，你需要改变包括依赖关系的方式，如<a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/#spring-cloud-zookeeper-install">这里</a>所述。</p>
+</blockquote>
+<h3 id="32-使用zookeeper注册"><a class="header" href="#32-使用zookeeper注册">3.2. 使用Zookeeper注册</a></h3>
+<p>当一个客户端在Zookeeper注册时，它提供关于自身的元数据（例如主机和端口，ID和名称）。</p>
+<p>以下示例显示了zookeeper客户端：</p>
+<pre><code class="language-java">@SpringBootApplication
+@RestController
+public class Application {
+
+    @RequestMapping(&quot;/&quot;)
+    public String home() {
+        return &quot;Hello world&quot;;
+    }
+
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(Application.class).web(true).run(args);
+    }
+
+}
+</code></pre>
+<blockquote>
+<p>上面的应用是一个普通的Spring Boot 应用程序</p>
+</blockquote>
+<p>如果zookeeper位于<code>localhost：2181</code>以外的某个地方，则配置必须提供服务器的位置，如以下示例所示：</p>
+<p><strong>application.yml</strong></p>
+<pre><code class="language-yml">spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+</code></pre>
+<blockquote>
+<p>如果你使用<code>Spring Cloud Zookeeper</code>配置，前面的例子中显示的值需要放在bootstrap.yml而不是application.yml中。</p>
+</blockquote>
+<p>默认的服务名称、实例ID和端口（取自<code>Environment</code>）分别为<code>${spring.application.name}</code>、Spring Contenxt ID和<code>${server.port}</code>。</p>
+<p>在classpath上有<code>spring-cloud-starter-zookeeper-discovery</code>，使应用程序成为Zookeeper的 service（即它自己注册）和 &quot;client&quot;（即它可以查询Zookeeper以定位其他服务）。</p>
+<p>如果你想禁用Zookeeper发现客户端，你可以将<code>spring.cloud.zookeeper.discovery.enabled</code>设置为<code>false</code>。</p>
+<h3 id="33-使用discoveryclient"><a class="header" href="#33-使用discoveryclient">3.3. 使用DiscoveryClient</a></h3>
+<p>Spring Cloud支持<a href="https://www.springcloud.io/docs/springcloud/spring-cloud-openfeign/">Feign</a>（一个REST客户端构建器）、<a href="https://github.com/spring-cloud/spring-cloud-netflix/blob/master/docs/src/main/ascii">Spring RestTemplate</a>和<a href="https://cloud.spring.io/spring-cloud-commons/reference/html/#loadbalanced-webclient">Spring WebFlux</a>，使用逻辑服务名称而不是物理URL。</p>
+<p>你也可以使用<code>org.springframework.cloud.client.discovery.DiscoveryClient</code>，它为发现客户端提供了一个简单的API，并不针对<code>Netflix</code>，如下例所示:</p>
+<pre><code class="language-java">@Autowired
+private DiscoveryClient discoveryClient;
+
+public String serviceUrl() {
+    List&lt;ServiceInstance&gt; list = discoveryClient.getInstances(&quot;STORES&quot;);
+    if (list != null &amp;&amp; list.size() &gt; 0 ) {
+        return list.get(0).getUri().toString();
+    }
+    return null;
+}
+</code></pre>
+<h2 id="4-使用spring-cloud-zookeeper与spring-cloud组件"><a class="header" href="#4-使用spring-cloud-zookeeper与spring-cloud组件">4. 使用Spring Cloud Zookeeper与Spring Cloud组件</a></h2>
+<p>使Feign、Spring Cloud Gateway和Spring Cloud LoadBalancer都与Spring Cloud Zookeeper一起工作。</p>
+<h3 id="41-zookeeper的spring-cloud-loadbalancer"><a class="header" href="#41-zookeeper的spring-cloud-loadbalancer">4.1. Zookeeper的Spring Cloud LoadBalancer</a></h3>
+<p><code>Spring Cloud Zookeeper</code>提供了一个<code>Spring Cloud LoadBalancer ServiceInstanceListSupplier</code>的实现。当你使用<code>spring-cloud-starter-zookeeper-discovery</code>时，<code>Spring Cloud LoadBalancer</code>被自动配置为默认使用<code>ZookeeperServiceInstanceListSupplier</code>。</p>
+<blockquote>
+<p>如果你之前在Zookeeper中使用<code>StickyRule</code>，那么在当前的栈中，它的替代品是<code>SC LoadBalancer</code>中的<code>SameInstancePreferenceServiceInstanceListSupplier</code>。你可以在<a href="https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer">Spring Cloud Commons</a>的文档中阅读如何设置它。</p>
+</blockquote>
+<h2 id="5-spring-cloud-zookeeper-和服务注册"><a class="header" href="#5-spring-cloud-zookeeper-和服务注册">5. Spring Cloud Zookeeper 和服务注册</a></h2>
+<p>spring Cloud Zookeeper实现了<code>ServiceRegistry</code>接口，让开发者以编程方式注册任意的服务。</p>
+<p><code>ServiceInstanceRegistration</code>类提供了一个<code>builder()</code>方法来创建一个可以被<code>ServiceRegistry</code>使用的注册对象，如下面的例子所示:</p>
+<pre><code class="language-java">@Autowired
+private ZookeeperServiceRegistry serviceRegistry;
+
+public void registerThings() {
+    ZookeeperRegistration registration = ServiceInstanceRegistration.builder()
+            .defaultUriSpec()
+            .address(&quot;anyUrl&quot;)
+            .port(10)
+            .name(&quot;/a/b/c/d/anotherservice&quot;)
+            .build();
+    this.serviceRegistry.register(registration);
+}
+</code></pre>
+<h3 id="51-实例状态"><a class="header" href="#51-实例状态">5.1. 实例状态</a></h3>
+<p><code>Netflix Eureka</code>支持拥有在服务器上注册的<code>OUT_OF_SERVICE</code>的实例。这些实例不会作为活动服务实例返回。这对诸如<code>blue/green</code>部署的行为很有用。(注意，Curator服务发现配置不支持这种行为）。) 利用灵活的有效载荷，Spring Cloud Zookeeper通过更新一些特定的元数据，然后在<code>Spring Cloud LoadBalancer ZookeeperServiceInstanceListSupplier</code>中过滤这些元数据，实现<code>OUT_OF_SERVICE</code>。<code>ZookeeperServiceInstanceListSupplier</code>会过滤掉所有不等于<code>UP</code>的非空的实例状态。如果实例状态字段为空，为了向后兼容，它被认为是<code>UP</code>。要改变一个实例的状态，请用<code>OUT_OF_SERVICE</code>向<code>ServiceRegistry</code>实例状态执行器端点发出POST，如下例所示：</p>
+<pre><code class="language-sh">$ http POST http://localhost:8081/service-registry status=OUT_OF_SERVICE
+</code></pre>
+<blockquote>
+<p>上面的例子使用了<a href="https://httpie.org/">httpie.org</a>的<code>http</code>命令。</p>
+</blockquote>
+<h2 id="6-zookeeper的依赖关系"><a class="header" href="#6-zookeeper的依赖关系">6. Zookeeper的依赖关系</a></h2>
+<p>下面的主题涵盖了如何处理Spring Cloud Zookeeper的依赖关系。</p>
+<ul>
+<li><a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/#spring-cloud-zookeeper-dependencies-using">使用Zookeeper依赖项</a></li>
+<li><a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/#spring-cloud-zookeeper-dependencies-activating">激活Zookeeper依赖项</a></li>
+<li><a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/#spring-cloud-zookeeper-dependencies-setting-up">设置Zookeeper依赖项</a></li>
+<li><a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/#spring-cloud-zookeeper-dependencies-configuring">配置Zookeeper依赖项</a></li>
+</ul>
+<h3 id="61-使用zookeeper依赖项"><a class="header" href="#61-使用zookeeper依赖项">6.1. 使用Zookeeper依赖项</a></h3>
+<p><code>Spring Cloud Zookeeper</code>为您提供了一种可能性，可以将您的应用程序的依赖性作为属性提供。作为依赖关系，你可以了解在Zookeeper中注册的其他应用程序，并且你想通过<code>Feign</code>（一个REST客户端构建器）、<code>Spring RestTemplate</code>和<code>Spring WebFlux</code>来调用这些应用程序。</p>
+<p>你也可以使用Zookeeper的依赖观察者功能来控制和监测你的依赖关系的状态。</p>
+<h3 id="62-激活zookeeper依赖项"><a class="header" href="#62-激活zookeeper依赖项">6.2. 激活Zookeeper依赖项</a></h3>
+<p>包括对 <code>org.springframework.cloud:spring-cloud-starter-zookeeper-discovery</code> 的依赖，可以实现自动配置，设置 <code>Spring Cloud Zookeeper</code> 的依赖。即使你在属性中提供了依赖性，你也可以关闭依赖性。要这样做，请将 <code>spring.cloud.zookeeper.dependency.enabled</code> 属性设置为 false（默认为 true）。</p>
+<h3 id="63-设置zookeeper的依赖项"><a class="header" href="#63-设置zookeeper的依赖项">6.3. 设置Zookeeper的依赖项</a></h3>
+<p>以下依赖性表示的例子。</p>
+<p><strong>application.yml</strong></p>
+<pre><code class="language-yml">spring.application.name: yourServiceName
+spring.cloud.zookeeper:
+  dependencies:
+    newsletter:
+      path: /path/where/newsletter/has/registered/in/zookeeper
+      loadBalancerType: ROUND_ROBIN
+      contentTypeTemplate: application/vnd.newsletter.$version+json
+      version: v1
+      headers:
+        header1:
+            - value1
+        header2:
+            - value2
+      required: false
+      stubs: org.springframework:foo:stubs
+    mailing:
+      path: /path/where/mailing/has/registered/in/zookeeper
+      loadBalancerType: ROUND_ROBIN
+      contentTypeTemplate: application/vnd.mailing.$version+json
+      version: v1
+      required: true
+</code></pre>
+<p>接下来的几节将逐一介绍依赖关系的各个部分。根属性名称是 <code>spring.cloud.zookeeper.dependencies</code>。</p>
+<h3 id="631-aliases"><a class="header" href="#631-aliases">6.3.1 Aliases</a></h3>
+<p>在根属性下面，你必须将每个依赖关系表示为一个别名。这是由于<code>Spring Cloud LoadBalancer</code>的限制，它要求将应用程序的ID放在URL中。因此，你不能传递任何复杂的路径，(例如<code>/myApp/myRoute/name</code>。) 别名是你用来代替<code>DiscoveryClient</code>、<code>Feign</code>或<code>RestTemplate</code>的<code>serviceId</code>的名字。</p>
+<p>在前面的例子中，别名是 <code>newsletter</code> 和 <code>mailing</code>。下面的例子显示了Feign`在通讯别名下的用法。</p>
+<pre><code class="language-java">@FeignClient(&quot;newsletter&quot;)
+public interface NewsletterService {
+        @RequestMapping(method = RequestMethod.GET, value = &quot;/newsletter&quot;)
+        String getNewsletters();
+}
+</code></pre>
+<h3 id="632-path"><a class="header" href="#632-path">6.3.2. Path</a></h3>
+<p>路径由 YAML<code>path</code>属性表示，是依赖关系在Zookeeper下注册的路径。正如上一节所述，<code>Spring Cloud LoadBalancer</code>在URL上操作。因此，这个路径不符合其要求。这就是为什么Spring Cloud Zookeeper将别名映射到适当的路径。</p>
+<h4 id="633-load-balancer-type"><a class="header" href="#633-load-balancer-type">6.3.3. Load Balancer Type</a></h4>
+<p>负载均衡器的类型由 YAML的<code>loadBalancerType</code>属性表示。</p>
+<p>如果你知道在调用这个特定的依赖关系时必须应用什么样的负载平衡策略，你可以在YAML文件中提供，它将被自动应用。你可以选择以下一种负载平衡策略。</p>
+<ul>
+<li>STICKY: 一旦选择了该实例，就会一直被调用。</li>
+<li>RANDOM: 随机地挑选一个实例。</li>
+<li>ROUND_ROBIN: 对实例进行轮询迭代。</li>
+</ul>
+<h4 id="634-content-type-模板和版本"><a class="header" href="#634-content-type-模板和版本">6.3.4. Content-Type 模板和版本</a></h4>
+<p>内容类型模板和版本由<code>contentType</code>Template和版本属性表示。</p>
+<p><code>content-Type</code>的模板和版本由YAML的属性<code>contentTypeTemplate</code> 和 <code>version</code>表示 </p>
+<p>如果你在Content-Type头中对你的API进行了更改，你就不要想在你的每个请求中添加这个头。另外，如果你想调用一个新版本的API，你不想在你的代码中漫游以提高API的版本。这就是为什么你可以在<code>contentTypeTemplate</code>中提供一个特殊的<code>$version</code>占位符。该占位符将由YAML属性的版本值来填充。考虑一下下面这个<code>contentTypeTemplate</code>的例子。</p>
+<pre><code>application/vnd.newsletter.$version+json
+</code></pre>
+<p>进一步考虑以下<code>version</code>：</p>
+<pre><code>v1
+</code></pre>
+<p><code>contentTypeTemplate</code>和版本的组合为每个请求创建一个<code>Content-Type</code>头，如下所示。</p>
+<pre><code>application/vnd.newsletter.v1+json
+</code></pre>
+<h4 id="635-默认头"><a class="header" href="#635-默认头">6.3.5. 默认头</a></h4>
+<p>默认的头文件由YAML中的头文件映射表示。</p>
+<p>有时，每次对依赖关系的调用都需要设置一些默认的头文件。为了不在代码中这样做，你可以在YAML文件中设置它们，如下面例子中的头文件部分所示。</p>
+<pre><code class="language-yml">headers:
+    Accept:
+        - text/html
+        - application/xhtml+xml
+    Cache-Control:
+        - no-cache
+</code></pre>
+<p>该标题部分的结果是在你的HTTP请求中添加带有适当数值列表的<code>Accept</code>和<code>Cache-Control</code>标题。</p>
+<h4 id="636-必要的依赖"><a class="header" href="#636-必要的依赖">6.3.6. 必要的依赖</a></h4>
+<p>所需的依赖关系由YAML中的<code>required</code>属性来表示。</p>
+<p>如果你的应用程序启动时，你的一个依赖项需要启动，你可以在YAML文件中设置<code>required: true</code>属性。</p>
+<p>如果你的应用程序在启动时不能将所需的依赖关系本地化，它就会抛出一个异常，并且Spring Context无法设置。换句话说，如果所需的依赖性没有在Zookeeper中注册，你的应用程序就无法启动。</p>
+<p>你可以在本文档后面阅读更多关于Spring Cloud Zookeeper Presence Checker的内容。</p>
+<h4 id="637-stubs"><a class="header" href="#637-stubs">6.3.7. Stubs</a></h4>
+<p>你可以提供一个以冒号分隔的路径，指向包含依赖关系的存根的JAR，如下面的例子中所示:</p>
+<p><code>stubs: org.springframework:myApp:stubs</code></p>
+<p>在：</p>
+<ul>
+<li><code>org.springframework</code> 是 <code>groupId</code>。</li>
+<li><code>myApp</code> 是 <code>artifactId</code>.</li>
+<li><code>stubs</code> 是分类器. (请注意，stubs是默认值)</li>
+</ul>
+<p>因为stubs是默认的分类器，所以前面的例子等同于下面的例子：</p>
+<p><code>stubs: org.springframework:myApp</code></p>
+<h3 id="64--配置spring-cloud-zookeeper的依赖关系"><a class="header" href="#64--配置spring-cloud-zookeeper的依赖关系">6.4.  配置Spring Cloud Zookeeper的依赖关系</a></h3>
+<p>你可以设置以下属性来启用或禁用Zookeeper Dependencies的部分功能。</p>
+<ul>
+<li><code>spring.cloud.zookeeper.dependencies</code>。如果你不设置这个属性，你就不能使用Zookeeper的依赖性。</li>
+<li><code>spring.cloud.zookeeper.dependency.loadbalancer.enabled</code>（默认为启用）。开启 Zookeeper 特定的自定义负载平衡策略，包括 <code>ZookeeperServiceInstanceListSupplier</code> 和基于依赖的负载平衡<code> RestTemplate</code> 设置。</li>
+<li><code>spring.cloud.zookeeper.dependency.headers.enabled</code>（默认为启用）。此属性注册了一个<code>FeignBlockingLoadBalancerClient</code>，它可以自动附加适当的头文件和内容类型的版本，如依赖性配置中提出的。如果没有这个设置，这两个参数不工作。</li>
+<li><code>spring.cloud.zookeeper.dependency.resttemplate.enabled</code>（默认为启用）。启用后，该属性会修改 <code>@LoadBalanced-annotated RestTemplate</code> 的请求头，这样它就会传递头信息和内容类型与依赖性配置中设置的版本。没有这个设置，这两个参数就不起作用。</li>
+</ul>
+<h2 id="7--spring-cloud-zookeeper依赖性观察器"><a class="header" href="#7--spring-cloud-zookeeper依赖性观察器">7.  Spring Cloud Zookeeper依赖性观察器</a></h2>
+<p>依赖观察者机制让你为你的依赖关系注册监听器。该功能实际上是观察者模式的一个实现。当一个依赖关系的状态发生变化（上升或下降）时，可以应用一些自定义逻辑。</p>
+<h3 id="71-激活"><a class="header" href="#71-激活">7.1. 激活</a></h3>
+<p>需要启用<code>Spring Cloud Zookeeper Dependencies</code>功能才能使用<code>Dependency Watcher</code>机制。</p>
+<h3 id="72-注册一个监听器"><a class="header" href="#72-注册一个监听器">7.2. 注册一个监听器</a></h3>
+<p>要注册一个监听器，你必须实现一个名为 <code>org.springframework.cloud.zookeeper.discovery.watcher.DependencyWatcherListener</code> 的接口，并将其注册为一个 bean。该接口给了你一个方法。</p>
+<pre><code class="language-java">void stateChanged(String dependencyName, DependencyState newState);
+</code></pre>
+<p>如果你想为一个特定的依赖关系注册一个监听器，依赖关系名称（<code>dependencyName</code>）将是你的具体实现的鉴别器。 <code>newState</code>为你提供关于你的依赖关系是否已经改变为<code>CONNECTED</code>或<code>DISCONNECTED</code>的信息。</p>
+<h3 id="73--使用presence-checker"><a class="header" href="#73--使用presence-checker">7.3.  使用Presence Checker</a></h3>
+<p>与依赖观察器绑定的是名为 &quot;Presence Checker &quot;的功能。它可以让你在应用程序启动时提供自定义行为，以便根据你的依赖关系的状态做出反应。</p>
+<p>抽象的默认实现是:</p>
+<p><code>org.springframework.cloud.zookeeper.discovery.watcher.presence.DependencyPresenceOnStartupVerifier</code>类是<code>org.springframework.cloud.zookeeper.discovery.watcher.presence.DefaultDependencyPresenceOnStartupVerifier</code>，它的工作方式如下:</p>
+<ol>
+<li>如果该依赖关系被标记为必需的，并且不在Zookeeper中，当你的应用程序启动时，它会抛出一个异常并关闭。</li>
+<li>如果依赖性不是必需的，<code>org.springframework.cloud.zookeeper.discovery.watcher.presence.LogMissingDependencyChecker</code>会在<code>WARN</code>级别记录依赖性的缺失。</li>
+</ol>
+<p>因为<code>DefaultDependencyPresenceOnStartupVerifier</code>只在没有<code>DependencyPresenceOnStartupVerifier</code>类型的bean时才被注册，所以这个功能可以被重写。</p>
+<h2 id="8-用zookeeper进行分布式配置"><a class="header" href="#8-用zookeeper进行分布式配置">8. 用Zookeeper进行分布式配置</a></h2>
+<p>Zookeeper提供了一个分层命名空间，让客户端存储任意的数据，如配置数据。Spring Cloud Zookeeper配置是配置服务器和客户端的替代品。配置是在特殊的 &quot;bootstrap &quot;阶段加载到Spring环境中的。配置默认存储在<code>/config</code>命名空间中。根据应用程序的名称和活动配置文件，创建多个<code>PropertySource</code>实例，以模仿Spring Cloud Config的属性解析顺序。例如，一个名称为<code>testApp</code>并具有<code>dev</code>配置文件的应用程序为其创建了以下属性源:</p>
+<ul>
+<li><code>config/testApp,dev</code></li>
+<li><code>config/testApp</code></li>
+<li><code>config/application,dev</code></li>
+<li><code>config/application</code></li>
+</ul>
+<p>最具体的属性源在顶部，最不具体的在底部。<code>config/application</code>命名空间中的属性适用于所有使用zookeeper进行配置的应用程序。<code>config/testApp</code>命名空间中的属性只对名为<code>testApp</code>的服务实例可用。</p>
+<p>目前，配置是在应用程序启动时读取的。向<code>/refresh</code>发送HTTP POST请求会导致配置被重新加载。观察配置命名空间（Zookeeper支持）目前还没有实现。</p>
+<h3 id="81-激活"><a class="header" href="#81-激活">8.1. 激活</a></h3>
+<p>包括对 <code>org.springframework.cloud:spring-cloud-starter-zookeeper-config</code> 的依赖，可以实现自动配置Spring Cloud Zookeeper。</p>
+<blockquote>
+<p>当使用3.4版本的Zookeeper时，你需要改变包括依赖关系的方式，如<a href="https://docs.spring.io/spring-cloud-zookeeper/docs/current/reference/html/#spring-cloud-zookeeper-install">这里</a>所述。</p>
+</blockquote>
+<h3 id="82-spring-boot配置数据导入"><a class="header" href="#82-spring-boot配置数据导入">8.2. Spring Boot配置数据导入</a></h3>
+<p>Spring Boot 2.4引入了一种通过<code>spring.config.import</code>属性导入配置数据的新方法。现在这是从Zookeeper获取配置的默认方式。</p>
+<p>为了选择性地连接到Zookeeper进行配置，在<code>application.properties</code>中设置以下内容。</p>
+<p><strong>application.properties</strong></p>
+<pre><code class="language-properties">spring.config.import=optional:zookeeper:
+</code></pre>
+<p>这将在&quot;localhost:2181 &quot;的默认位置连接到Zookeeper。移除<code>optional:</code> 前缀将导致Zookeeper配置在无法连接到Zookeeper时失败。要改变Zookeeper配置的连接属性，可以设置<code>spring.cloud.zookeeper.connect-string</code>或将连接字符串添加到<code>spring.config.import</code>语句中，如<code>spring.config.import=optional:zookeeper:myhost:2818</code>。<code>import</code>属性中的位置优先于<code>connect-string</code>属性。</p>
+<p>Zookeeper 配置将尝试从基于 <code>spring.cloud.zookeeper.config.name</code>（默认为 spring.application.name 属性的值）和 <code>spring.cloud.zookeeper.config.default-context</code>（默认为应用）的四个自动上下文中加载值。如果你想指定上下文而不是使用计算出的上下文，你可以在<code>spring.config.import</code>语句中添加该信息。</p>
+<p><strong>application.properties</strong></p>
+<pre><code class="language-properties">spring.config.import=optional:zookeeper:myhost:2181/contextone;/context/two
+</code></pre>
+<p>这将有选择地只从<code>/contextone</code>和<code>/context/two</code>加载配置。</p>
+<blockquote>
+<p>通过<code>spring.config.import</code>导入的Spring Boot配置数据方法不需要一个引导文件（properties或yaml）</p>
+</blockquote>
+<h3 id="83-定制"><a class="header" href="#83-定制">8.3. 定制</a></h3>
+<p>Zookeeper配置可以通过设置以下属性进行定制。</p>
+<pre><code class="language-yml">spring:
+  cloud:
+    zookeeper:
+      config:
+        enabled: true
+        root: configuration
+        defaultContext: apps
+        profileSeparator: '::'
+</code></pre>
+<ul>
+<li><code>enabled</code>: 将此值设置为false，可禁用Zookeeper配置。</li>
+<li><code>root</code>: 设置配置值的基础命名空间。</li>
+<li><code>defaultContext</code>: 设置所有应用程序使用的名称。</li>
+<li><code>profileSeparator</code>: 设置分隔符的值，用于在有配置文件的属性源中分隔配置文件的名称。</li>
+</ul>
+<blockquote>
+<p>如果你设置了 <code>spring.cloud.bootstrap.enabled=true</code> 或 spring.config.use-legacy-processing=true<code>，或者包含了 </code>spring-cloud-starter-bootstrap`，那么上述值就需要放在 bootstrap.yml 而不是 application.yml 中。</p>
+</blockquote>
+<h3 id="84-访问控制列表acls"><a class="header" href="#84-访问控制列表acls">8.4. 访问控制列表（ACLs)</a></h3>
+<p>你可以通过调用<code>CuratorFramework Bean</code>的<code>addAuthInfo</code>方法为Zookeeper ACL添加认证信息。实现这一目的的方法之一是提供你自己的<code>CuratorFramework</code> Bean，如下面的例子中所示:</p>
+<pre><code class="language-java">@BoostrapConfiguration
+public class CustomCuratorFrameworkConfig {
+
+  @Bean
+  public CuratorFramework curatorFramework() {
+    CuratorFramework curator = new CuratorFramework();
+    curator.addAuthInfo(&quot;digest&quot;, &quot;user:password&quot;.getBytes());
+    return curator;
+  }
+
+}
+</code></pre>
+<p>请参考<a href="https://github.com/spring-cloud/spring-cloud-zookeeper/blob/master/spring-cloud-zookeeper-core/src/main/java/org/springframework/cloud/zookeeper/ZookeeperAutoConfiguration.java">ZookeeperAutoConfiguration</a>类，看看<code>CuratorFramework</code> bean的默认配置。</p>
+<p>另外，你也可以从一个依赖于现有<code>CuratorFramework</code> Bean的类中添加你的证书，如下面的例子中所示。</p>
+<pre><code class="language-java">@BoostrapConfiguration
+public class DefaultCuratorFrameworkConfig {
+
+  public ZookeeperConfig(CuratorFramework curator) {
+    curator.addAuthInfo(&quot;digest&quot;, &quot;user:password&quot;.getBytes());
+  }
+
+}
+</code></pre>
+<p>这个Bean的创建必须发生在<code>bootstrapping</code>阶段。你可以通过用 <code>@BootstrapConfiguration</code> 注释来注册配置类，并将它们包含在一个逗号分隔的列表中，你将该列表设置为资源<code>/META-INF/spring.plants</code> 文件中 <code>org.springframework.cloud.bootstrap.BootstrapConfiguration</code> 属性的值，如以下示例所示:</p>
+<p><strong>resources/META-INF/spring.factories</strong></p>
+<pre><code class="language-properties">org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+my.project.CustomCuratorFrameworkConfig,\
+my.project.DefaultCuratorFrameworkConfig
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../spring-cloud/spring-cloud-vault.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../spring-cloud/spring-cloud-app-broker.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../spring-cloud/spring-cloud-vault.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../spring-cloud/spring-cloud-app-broker.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+                <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>

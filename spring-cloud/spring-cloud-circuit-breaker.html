@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Spring Cloud Circuit Breaker</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Spring,SpringBoot,SpringCloud最新中文文档">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../index.html">Spring中文文档</a></li><li class="chapter-item "><a href="../spring-boot/index.html">Spring Boot</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-boot/getting-started.html">开始使用</a></li><li class="chapter-item "><a href="../spring-boot/upgrading.html">升级spring-boot应用</a></li><li class="chapter-item "><a href="../spring-boot/using.html">使用spring-boot</a></li><li class="chapter-item "><a href="../spring-boot/features.html">SringBoot特性</a></li><li class="chapter-item "><a href="../spring-boot/actuator.html">Spring Boot Actuator</a></li><li class="chapter-item "><a href="../spring-boot/cli.html">Spring Boot CLI</a></li><li class="chapter-item "><a href="../spring-boot/deployment.html">部署spring-boot应用</a></li><li class="chapter-item "><a href="../spring-boot/build-tool-plugins.html">构建工具插件</a></li><li class="chapter-item "><a href="../spring-boot/howto.html">“How-to”指南</a></li><li class="chapter-item "><a href="../spring-boot/application-properties.html">Application Properties</a></li><li class="chapter-item "><a href="../spring-boot/configuration-metadata.html">Configuration Metadata</a></li><li class="chapter-item "><a href="../spring-boot/auto-configuration-classes.html">Auto-configuration classes</a></li><li class="chapter-item "><a href="../spring-boot/test-auto-configuration.html">Test auto-configuration annotations</a></li><li class="chapter-item "><a href="../spring-boot/executable-jar.html">可执行Jar</a></li><li class="chapter-item "><a href="../spring-boot/dependency-versions.html">依赖版本号</a></li></ol></li><li class="chapter-item expanded "><a href="../spring-cloud/index.html">Spring Cloud</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-azure.html">Spring Cloud Azure</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-alibaba.html">Spring Cloud Alibaba</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-for-amazon-web-services.html">Spring Cloud for Amazon Web Services</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-bus.html">Spring Cloud Bus</a></li><li class="chapter-item expanded "><a href="../spring-cloud/spring-cloud-circuit-breaker.html" class="active">Spring Cloud Circuit Breaker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cli.html">Spring Cloud CLI</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-for-cloud-foundry.html">Spring Cloud for Cloud Foundry</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cloud-foundry-service-nroker.html">Spring Cloud - Cloud Foundry Service Broker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cluster.html">Spring Cloud Cluster</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-commons.html">Spring Cloud Commons</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-config.html">Spring Cloud Config</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-cconnectors.html">Spring Cloud Connectors</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-consul.html">Spring Cloud Consul</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-contract.html">Spring Cloud Contract</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-function.html">Spring Cloud Function</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-gateway.html">Spring Cloud Gateway</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-gcp.html">Spring Cloud GCP</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-kubernetes.html">Spring Cloud Kubernetes</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-netflix].html">Spring Cloud Netflix</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-open-service-broker.html">Spring Cloud Open Service Broker</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-openfeign.html">Spring Cloud OpenFeign</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-pipelines.html">Spring Cloud Pipelines</a></li><li class="chapter-item "><a href="../spring-cloud-schema-registry.html">Spring Cloud Schema Registry</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-security.html">Spring Cloud Security</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-skipper.html">Spring Cloud Skipper</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth.html">Spring Cloud Sleuth</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/getting-started.html">入门使用</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/using.html">使用 Spring Cloud Sleuth</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/features.html">Spring Cloud Sleuth 特性</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/howto.html">“How-to” 指南</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/sleuth-integration.html">Spring Cloud Sleuth 整合</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-sleuth/appendix.html">附录</a></li></ol></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream.html">Spring Cloud Stream</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-reference.html">Overview</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-rabbit.html">Rabbit MQ Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-kafka.html">Apache Kafka Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-binder-kafka.html">Apache Kafka Streams Binder</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream/spring-cloud-stream-samples.html">Spring Cloud Stream Samples</a></li></ol></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream-app-starters.html">Spring Cloud Stream App Starters</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-stream-applications.html">Spring Cloud Stream Applications</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-task.html">Spring Cloud Task</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-task-app-starters.html">Spring Cloud Task App Starters</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-vault.html">Spring Cloud Vault</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-zookeeper.html">Spring Cloud Zookeeper</a></li><li class="chapter-item "><a href="../spring-cloud/spring-cloud-app-broker.html">Spring Cloud App Broker</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="spring-cloud-circuit-breaker"><a class="header" href="#spring-cloud-circuit-breaker">Spring Cloud Circuit Breaker</a></h1>
+<ul>
+<li>当前版本：2.0.2</li>
+<li>修改时间：2021年7月22日</li>
+<li>官方文档：<a href="https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/">https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/</a></li>
+<li>源码仓库：<a href="https://github.com/spring-cloud/spring-cloud-circuitbreaker">https://github.com/spring-cloud/spring-cloud-circuitbreaker</a></li>
+</ul>
+<p>Spring Cloud Circuit breaker提供了一个跨越不同断路器实现的抽象。它提供了一个一致的API，可以在你的应用程序中使用，允许你的开发者选择最适合你的应用程序需求的断路器实现。</p>
+<h2 id="1-使用说明"><a class="header" href="#1-使用说明">1. 使用说明</a></h2>
+<p>Spring Cloud CircuitBreaker项目包含Resilience4J和Spring Retry的实现。Spring Cloud CircuitBreaker中实现的API在Spring Cloud Commons中存在。这些API的使用文档位于<a href="https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-circuit-breaker">Spring Cloud Commons documentation</a>中。</p>
+<h3 id="11-配置resilience4j断路器"><a class="header" href="#11-配置resilience4j断路器">1.1. 配置Resilience4J断路器</a></h3>
+<h4 id="111-starters"><a class="header" href="#111-starters">1.1.1. Starters</a></h4>
+<p>Resilience4J的实现有两个启动器，一个用于reactive应用，一个用于非reactive应用。</p>
+<ul>
+<li><code>org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j</code> - 非reactive应用程序</li>
+<li><code>org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j</code> - reactive应用程序</li>
+</ul>
+<h4 id="112-自动配置"><a class="header" href="#112-自动配置">1.1.2. 自动配置</a></h4>
+<p>你可以通过设置<code>spring.cloud.circuitbreaker.resilience4j.enabled</code>为<code>false</code>来禁用Resilience4J自动配置。</p>
+<h4 id="113-默认配置"><a class="header" href="#113-默认配置">1.1.3. 默认配置</a></h4>
+<p>为了给所有的断路器提供一个默认的配置，创建一个<code>Customize</code> bean，它被传递给<code>Resilience4JCircuitBreakerFactory</code>或<code>ReactiveResilience4JCircuitBreakerFactory</code>。<code>configureDefault</code>方法可以用来提供一个默认的配置。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4JCircuitBreakerFactory&gt; defaultCustomizer() {
+    return factory -&gt; factory.configureDefault(id -&gt; new Resilience4JConfigBuilder(id)
+            .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(4)).build())
+            .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
+            .build());
+}
+</code></pre>
+<p>Reactive Example</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;ReactiveResilience4JCircuitBreakerFactory&gt; defaultCustomizer() {
+    return factory -&gt; factory.configureDefault(id -&gt; new Resilience4JConfigBuilder(id)
+            .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
+            .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(4)).build()).build());
+}
+</code></pre>
+<h4 id="114-具体的断路器配置"><a class="header" href="#114-具体的断路器配置">1.1.4. 具体的断路器配置</a></h4>
+<p>与提供默认配置类似，你可以创建一个<code>Customize</code> Bean，它被传递给一个 <code>Resilience4JCircuitBreakerFactory</code> 或 <code>ReactiveResilience4JCircuitBreakerFactory</code>。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4JCircuitBreakerFactory&gt; slowCustomizer() {
+    return factory -&gt; factory.configure(builder -&gt; builder.circuitBreakerConfig(CircuitBreakerConfig.ofDefaults())
+            .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(2)).build()), &quot;slow&quot;);
+}
+</code></pre>
+<p>除了配置被创建的断路器外，你还可以在断路器被创建后但被返回给调用者之前对其进行自定义。要做到这一点，你可以使用<code>addCircuitBreakerCustomizer</code>方法。这对于向Resilience4J断路器添加事件处理程序很有用。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4JCircuitBreakerFactory&gt; slowCustomizer() {
+    return factory -&gt; factory.addCircuitBreakerCustomizer(circuitBreaker -&gt; circuitBreaker.getEventPublisher()
+    .onError(normalFluxErrorConsumer).onSuccess(normalFluxSuccessConsumer), &quot;normalflux&quot;);
+}
+</code></pre>
+<p>Reactive Example</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;ReactiveResilience4JCircuitBreakerFactory&gt; slowCustomizer() {
+    return factory -&gt; {
+        factory.configure(builder -&gt; builder
+        .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofSeconds(2)).build())
+        .circuitBreakerConfig(CircuitBreakerConfig.ofDefaults()), &quot;slow&quot;, &quot;slowflux&quot;);
+        factory.addCircuitBreakerCustomizer(circuitBreaker -&gt; circuitBreaker.getEventPublisher()
+            .onError(normalFluxErrorConsumer).onSuccess(normalFluxSuccessConsumer), &quot;normalflux&quot;);
+     };
+}
+</code></pre>
+<h4 id="115-断路器属性配置"><a class="header" href="#115-断路器属性配置">1.1.5. 断路器属性配置</a></h4>
+<p>你可以在你的应用程序的配置属性文件中配置<code>CircuitBreaker</code>和<code>TimeLimiter</code>实例。属性配置比Java<code>Customizer</code>配置具有更高的优先级。</p>
+<pre><code class="language-yaml">resilience4j.circuitbreaker:
+ instances:
+     backendA:
+         registerHealthIndicator: true
+         slidingWindowSize: 100
+     backendB:
+         registerHealthIndicator: true
+         slidingWindowSize: 10
+         permittedNumberOfCallsInHalfOpenState: 3
+         slidingWindowType: TIME_BASED
+         recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+
+resilience4j.timelimiter:
+ instances:
+     backendA:
+         timeoutDuration: 2s
+         cancelRunningFuture: true
+     backendB:
+         timeoutDuration: 1s
+         cancelRunningFuture: false
+</code></pre>
+<p>关于Resilience4j属性配置的更多信息，见<a href="https://resilience4j.readme.io/docs/getting-started-3#configuration">Resilience4J Spring Boot 2配置</a>。</p>
+<h4 id="116-隔离模式支持"><a class="header" href="#116-隔离模式支持">1.1.6. 隔离模式支持</a></h4>
+<p>如果<code>resilience4j-bulkhead</code>在classpath上，Spring Cloud CircuitBreaker将用Resilience4j Bulkhead来包装所有方法。你可以通过设置<code>spring.cluitbreaker.bulkhead.resilience4j.enabled</code>为<code>false</code>来禁用Resilience4j Bulkhead。</p>
+<p>Spring Cloud CircuitBreaker Resilience4j提供两种隔离模式的实现。</p>
+<ul>
+<li><code>SemaphoreBulkhead</code>，使用Semaphores。</li>
+<li><code>FixedThreadPoolBulkhead</code>，它使用一个有界队列和一个固定的线程池。</li>
+</ul>
+<p>默认情况下，Spring Cloud CircuitBreaker Resilience4j使用<code>FixedThreadPoolBulkhead</code>。更多关于实现Bulkhead模式的信息请参见<a href="https://resilience4j.readme.io/docs/bulkhead">Resilience4j Bulkhead</a>。</p>
+<p><code>Customizer&lt;Resilience4jBulkheadProvider&gt;</code>可以用来提供默认的<code>Bulkhead</code>和<code>ThreadPoolBulkhead</code>配置。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4jBulkheadProvider&gt; defaultBulkheadCustomizer() {
+    return provider -&gt; provider.configureDefault(id -&gt; new Resilience4jBulkheadConfigurationBuilder()
+        .bulkheadConfig(BulkheadConfig.custom().maxConcurrentCalls(4).build())
+        .threadPoolBulkheadConfig(ThreadPoolBulkheadConfig.custom().coreThreadPoolSize(1).maxThreadPoolSize(1).build())
+        .build()
+);
+}
+</code></pre>
+<h4 id="117-具体的隔离配置"><a class="header" href="#117-具体的隔离配置">1.1.7. 具体的隔离配置</a></h4>
+<p>与证明默认的'Bulkhead'或'ThreadPoolBulkhead'配置类似，你可以创建一个<code>Customize</code> bean，这个bean被传递给<code>Resilience4jBulkheadProvider</code>。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4jBulkheadProvider&gt; slowBulkheadProviderCustomizer() {
+    return provider -&gt; provider.configure(builder -&gt; builder
+        .bulkheadConfig(BulkheadConfig.custom().maxConcurrentCalls(1).build())
+        .threadPoolBulkheadConfig(ThreadPoolBulkheadConfig.ofDefaults()), &quot;slowBulkhead&quot;);
+}
+</code></pre>
+<p>除了配置被创建的隔板外，你还可以在隔板和线程池被创建后，但在返回给调用者之前，对其进行自定义。要做到这一点，你可以使用<code>addBulkheadCustomizer</code>和<code>addThreadPoolBulkheadCustomizer</code>方法。</p>
+<p>Bulkhead Example</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4jBulkheadProvider&gt; customizer() {
+    return provider -&gt; provider.addBulkheadCustomizer(bulkhead -&gt; bulkhead.getEventPublisher()
+        .onCallRejected(slowRejectedConsumer)
+        .onCallFinished(slowFinishedConsumer), &quot;slowBulkhead&quot;);
+}
+</code></pre>
+<p>Thread Pool Bulkhead Example</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;Resilience4jBulkheadProvider&gt; slowThreadPoolBulkheadCustomizer() {
+    return provider -&gt; provider.addThreadPoolBulkheadCustomizer(threadPoolBulkhead -&gt; threadPoolBulkhead.getEventPublisher()
+        .onCallRejected(slowThreadPoolRejectedConsumer)
+        .onCallFinished(slowThreadPoolFinishedConsumer), &quot;slowThreadPoolBulkhead&quot;);
+}
+</code></pre>
+<h4 id="118-隔板属性配置"><a class="header" href="#118-隔板属性配置">1.1.8. 隔板属性配置</a></h4>
+<p>你可以在你的应用程序的配置属性文件中配置 ThreadPoolBulkhead 和 SemaphoreBulkhead 实例。属性配置比Java<code>Customizer</code>配置具有更高的优先级。</p>
+<pre><code class="language-yaml">resilience4j.thread-pool-bulkhead:
+    instances:
+        backendA:
+            maxThreadPoolSize: 1
+            coreThreadPoolSize: 1
+resilience4j.bulkhead:
+    instances:
+        backendB:
+            maxConcurrentCalls: 10
+</code></pre>
+<p>关于Resilience4j属性配置的更多信息，见<a href="https://resilience4j.readme.io/docs/getting-started-3#configuration">Resilience4J Spring Boot 2配置</a>。</p>
+<h4 id="119-collecting-metrics"><a class="header" href="#119-collecting-metrics">1.1.9. Collecting Metrics</a></h4>
+<p>Spring Cloud Circuit Breaker Resilience4j包含自动配置功能，只要classpath上有正确的依赖项，就可以设置度量衡收集。要启用指标收集，你必须包括<code>org.springframework.boot:spring-boot-starter-actuator</code>，和<code>io.github.resilience4j:resilience4j-micrometer</code>。关于存在这些依赖关系时产生的指标的更多信息，请参阅<a href="https://resilience4j.readme.io/docs/micrometer">Resilience4j文档</a>。</p>
+<blockquote>
+<p>你不必直接包括<code>micrometer-core</code>，因为它是由<code>spring-boot-starter-actuator</code>带来的。</p>
+</blockquote>
+<h3 id="12-配置-spring-retry-circuit-breakers"><a class="header" href="#12-配置-spring-retry-circuit-breakers">1.2. 配置 Spring Retry Circuit Breakers</a></h3>
+<p>Spring Retry为Spring应用程序提供声明式重试支持。该项目中的一个子集包括实现断路器功能的能力。Spring Retry通过它的<a href="https://github.com/spring-projects/spring-retry/blob/master/src/main/java/org/springframework/retry/policy/CircuitBreakerRetryPolicy.java"><code>CircuitBreakerRetryPolicy</code></a>和<a href="https://github.com/spring-projects/spring-retry#stateful-retry">stateful retry</a>的组合来提供断路器实现。所有使用Spring Retry创建的断路器将使用<code>CircuitBreakerRetryPolicy</code>和一个<a href="https://github.com/spring-projects/spring-retry/blob/master/src/main/java/org/springframework/retry/support/DefaultRetryState.java"><code>DefaultRetryState</code></a>。这两个类都可以使用<code>SpringRetryConfigBuilder</code>进行配置。</p>
+<h4 id="121-默认配置"><a class="header" href="#121-默认配置">1.2.1. 默认配置</a></h4>
+<p>为了给所有的断路器提供一个默认的配置，创建一个<code>Customize</code> bean，它被传递给一个<code>SpringRetryCircuitBreakerFactory</code>。<code>configureDefault</code>方法可以用来提供一个默认的配置。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;SpringRetryCircuitBreakerFactory&gt; defaultCustomizer() {
+    return factory -&gt; factory.configureDefault(id -&gt; new SpringRetryConfigBuilder(id)
+        .retryPolicy(new TimeoutRetryPolicy()).build());
+}
+</code></pre>
+<h4 id="122-具体的断路器配置"><a class="header" href="#122-具体的断路器配置">1.2.2. 具体的断路器配置</a></h4>
+<p>与提供默认配置类似，你可以创建一个 <code>Customize</code> Bean，它被传递给一个 <code>SpringRetryCircuitBreakerFactory</code>。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;SpringRetryCircuitBreakerFactory&gt; slowCustomizer() {
+    return factory -&gt; factory.configure(builder -&gt; builder.retryPolicy(new SimpleRetryPolicy(1)).build(), &quot;slow&quot;);
+}
+</code></pre>
+<p>除了配置被创建的断路器外，你还可以在断路器被创建后但被返回给调用者之前对其进行自定义。要做到这一点，你可以使用<code>addRetryTemplateCustomizers</code>方法。这对于向<code>RetryTemplate</code>添加事件处理程序很有用。</p>
+<pre><code class="language-java">@Bean
+public Customizer&lt;SpringRetryCircuitBreakerFactory&gt; slowCustomizer() {
+    return factory -&gt; factory.addRetryTemplateCustomizers(retryTemplate -&gt; retryTemplate.registerListener(new RetryListener() {
+
+        @Override
+        public &lt;T, E extends Throwable&gt; boolean open(RetryContext context, RetryCallback&lt;T, E&gt; callback) {
+            return false;
+        }
+
+        @Override
+        public &lt;T, E extends Throwable&gt; void close(RetryContext context, RetryCallback&lt;T, E&gt; callback, Throwable throwable) {
+
+        }
+
+        @Override
+        public &lt;T, E extends Throwable&gt; void onError(RetryContext context, RetryCallback&lt;T, E&gt; callback, Throwable throwable) {
+
+        }
+    }));
+}
+</code></pre>
+<h2 id="2-构建"><a class="header" href="#2-构建">2. 构建</a></h2>
+<h3 id="21-基本编译和测试"><a class="header" href="#21-基本编译和测试">2.1. 基本编译和测试</a></h3>
+<p>要构建源代码，你需要安装JDK 1.8。</p>
+<p>Spring Cloud使用Maven进行大多数构建相关活动，你可以通过克隆你感兴趣的项目并键入</p>
+<pre><code class="language-bash">$ ./mvnw install
+</code></pre>
+<blockquote>
+<p>您也可以自己安装Maven（&gt;=3.3.3），运行<code>mvn</code>命令来代替下面例子中的<code>./mvnw</code>。如果你这样做，如果你的本地Maven设置不包含spring预发布工件的仓库声明，你可能还需要添加<code>-P spring</code>。</p>
+</blockquote>
+<blockquote>
+<p>请注意，您可能需要通过设置<code>MAVEN_OPTS</code>环境变量，如<code>Xmx512m -XX:MaxPermSize=128m</code>来增加Maven的可用内存量。我们试图在<code>.mvn</code>配置中涵盖这一点，所以如果你发现你必须这样做才能使构建成功，请提出一个票据，将设置添加到源控制中。</p>
+</blockquote>
+<p>关于如何构建项目的提示，请看<code>.travis.yml</code>，如果有的话。应该有一个 &quot;script&quot;，也许还有 &quot;install&quot;命令。也可以看看 &quot;services&quot;部分，看看是否有任何服务需要在本地运行（例如mongo或rabbit）。忽略你可能在 &quot;before_install&quot;中发现的与git有关的部分，因为它们与设置git证书有关，而你已经有了这些证书。</p>
+<p>需要中间件的项目通常包括<code>docker-compose.yml</code>，所以考虑使用<a href="https://docs.docker.com/compose/">Docker Compose</a>在Docker容器中运行中间件服务器。关于mongo、rabbit和redis的常见情况，请参见<a href="https://github.com/spring-cloud-samples/scripts">scripts demo repository</a>中的README，以了解具体说明。</p>
+<blockquote>
+<p>如果其他都失败了，用<code>.travis.yml</code>的命令来构建（通常是<code>./mvnw install</code>）。</p>
+</blockquote>
+<h3 id="22-文档"><a class="header" href="#22-文档">2.2. 文档</a></h3>
+<p>spring-cloud-build模块有一个 &quot;docs&quot;配置文件，如果你打开它，它将尝试从<code>src/main/asciidoc</code>构建asciidoc源。作为这个过程的一部分，它将寻找 &quot;README.adoc&quot;，并通过加载所有内容来处理它，但不解析或渲染它，只是将它复制到&quot;${main.baseir}&quot;（默认为&quot;$/tmp/releaser-1622150702029-0/spring-cloud-circuitbreaker/docs&quot;，即项目的根）。如果README有任何改动，在Maven构建后会在正确位置显示为修改过的文件。提交并推送修改内容即可。</p>
+<h3 id="23-使用代码工作"><a class="header" href="#23-使用代码工作">2.3. 使用代码工作</a></h3>
+<p>如果你没有IDE的偏好，我们建议你在处理代码时使用<a href="https://www.springsource.com/developer/sts">Spring Tools Suite</a>或<a href="https://eclipse.org/">Eclipse</a>。我们使用<a href="https://eclipse.org/m2e/">m2eclipse</a> eclipse插件来支持maven。其他IDE和工具只要使用Maven 3.3.3或更高版本，也应能顺利工作。</p>
+<h4 id="231-激活spring-maven配置文件"><a class="header" href="#231-激活spring-maven配置文件">2.3.1. 激活Spring Maven配置文件</a></h4>
+<p>Spring Cloud项目需要激活 &quot;spring&quot; Maven配置文件，以解决spring里程碑和快照库的问题。使用你喜欢的IDE将该配置文件设置为激活状态，否则你可能会遇到构建错误。</p>
+<h4 id="232-用m2eclipse导入到eclipse中"><a class="header" href="#232-用m2eclipse导入到eclipse中">2.3.2. 用m2eclipse导入到eclipse中</a></h4>
+<p>在使用eclipse时，我们推荐<a href="https://eclipse.org/m2e/">m2eclipse</a> eclipse插件。如果你还没有安装m2eclipse，它可以从 &quot;eclipse marketplace&quot;获得。</p>
+<blockquote>
+<p>旧版本的m2e不支持Maven 3.3，所以一旦项目被导入Eclipse，你还需要告诉m2eclipse为项目使用正确的配置文件。如果你看到项目中与POMs有关的许多不同的错误，请检查你是否有一个最新的安装。如果你不能升级m2e，在你的<code>settings.xml</code>中加入 &quot;spring &quot;配置文件。或者你可以从父pom的 &quot;spring &quot;配置文件中复制版本库设置到你的<code>settings.xml</code>。</p>
+</blockquote>
+<h4 id="233-在没有m2eclipse的情况下导入到eclipse中"><a class="header" href="#233-在没有m2eclipse的情况下导入到eclipse中">2.3.3. 在没有m2eclipse的情况下导入到eclipse中</a></h4>
+<p>如果你不愿意使用m2eclipse，你可以用以下命令生成eclipse项目元数据。</p>
+<pre><code class="language-bash">$ ./mvnw eclipse:eclipse
+</code></pre>
+<p>生成的eclipse项目可以通过在文件菜单中选择导入现有项目来导入。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../spring-cloud/spring-cloud-bus.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../spring-cloud/spring-cloud-cli.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../spring-cloud/spring-cloud-bus.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../spring-cloud/spring-cloud-cli.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+                <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+                <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
